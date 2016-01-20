@@ -1,3 +1,5 @@
-﻿.valign {
-    vertical-align: middle;
+﻿.messageDisplay
+{
+  height: 100px;
+  max-height: 100px;  
 }

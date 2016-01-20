@@ -5,11 +5,33 @@
 }
 <div class="container">
     <div class="row">
-        <div class="col-sm-2">
-            <label class="control-label" for="usernamebox">User Name</label>
+        <div class="col-md-12">
+            <input type="text" class="form-control invisible"/>
         </div>
-        <div class="col-sm-2">
-            <input class="form-control" id="usernamebox" type="text" />
+    </div>
+    <div class="row">
+        <div class="col-md-5 panel">
+            <div class="row">
+                <div class="col-md-4">
+                    <label class="control-label" for="usernamebox">User Name</label>
+                </div>
+                <div class="col-md-8">
+                    <input class="form-control" id="usernamebox" type="text"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <button class="btn btn-primary">Sign In</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-6 panel">
+            <div class="row">
+                <div class="col-md-12">
+                    <textarea class="messageDisplay center-block" rows="30" cols="70" disabled=""></textarea>
+                </div>
+            </div>
         </div>
     </div>
 </div>
