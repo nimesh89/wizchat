@@ -8,12 +8,22 @@ using Microsoft.AspNet.Mvc;
 
 namespace Wizchat.Controllers
 {
+    using Microsoft.AspNet.Diagnostics;
+    using Microsoft.AspNet.Http.Features;
+
     public class HomeController : Controller
     {
         // GET: /<controller>/
         public IActionResult Index()
         {
             return View();
+        }
+
+        public IActionResult Error()
+        {
+            var feature = HttpContext.Features.Get<IExceptionHandlerFeature>();
+            var error = feature?.Error;
+            return Content("");
         }
     }
 }

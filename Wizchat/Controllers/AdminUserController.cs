@@ -8,23 +8,16 @@ using Microsoft.AspNet.Mvc;
 
 namespace Wizchat.Controllers
 {
-    using Microsoft.AspNet.SignalR;
-    using Microsoft.Extensions.DependencyInjection;
-
-    using Wizchat.Hubs;
     using Wizchat.Models;
 
     [Route("api/[controller]")]
-    public class UserController : Controller
+    public class AdminUserController : Controller
     {
         // POST api/values
         [HttpPost]
         public void Post([FromBody]LoginRequest request)
         {
-            var context = this.Resolver.GetRequiredService<IHubContext<ChatHub>>();
-            ClientStore.AddClient(request.Name, request.ConnectionId);
-            var client = context.Clients.Client(ClientStore.AdminClient.ConnectionId);
-            client.addUser(request.Name);
+            ClientStore.AddAdmin(request.ConnectionId);
         }
     }
 }

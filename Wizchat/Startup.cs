@@ -9,6 +9,8 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Wizchat
 {
+    using Microsoft.AspNet.Diagnostics;
+
     public class Startup
     {
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -32,6 +34,8 @@ namespace Wizchat
 
             app.UseWebSockets();
             app.UseSignalR();
+            app.UseDeveloperExceptionPage();
+            app.UseExceptionHandler("/Home/Error");
         }
 
         // Entry point for the application.

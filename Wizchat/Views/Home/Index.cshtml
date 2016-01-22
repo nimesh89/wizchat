@@ -3,25 +3,25 @@
 *@
 @{
 }
-<div class="container">
+<div class="container" ng-app="main">
     <div class="row">
         <div class="col-md-12">
             <input type="text" class="form-control invisible"/>
         </div>
     </div>
-    <div class="row">
+    <div class="row" ng-controller="userlogin">
         <div class="col-md-5 panel">
             <div class="row">
                 <div class="col-md-4">
                     <label class="control-label" for="usernamebox">User Name</label>
                 </div>
                 <div class="col-md-8">
-                    <input class="form-control" id="usernamebox" type="text"/>
+                    <input class="form-control" ng-model="username" ng-disabled="alreadysignin" id="usernamebox" type="text"/>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <button class="btn btn-primary">Sign In</button>
+                    <button ng-click="signin()" ng-disabled="alreadysignin" class="btn btn-primary">Sign In</button>
                 </div>
             </div>
         </div>
@@ -63,3 +63,4 @@
         </div>
     </div>
 </div>
+<script src="~/js/client.js"></script>
