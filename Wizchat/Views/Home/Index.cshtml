@@ -26,7 +26,7 @@
             </div>
         </div>
         <div class="col-md-1"></div>
-        <div class="col-md-6 panel">
+        <div class="col-md-6 panel" ng-controller="sendmessage">
             <div class="row">
                 <div class="col-md-12">
                     <textarea class="messageDisplay center-block form-control" rows="30" cols="70" disabled=""></textarea>
@@ -37,14 +37,14 @@
                     <input type="text" class="form-control invisible" />
                 </div>
             </div>
-            <div class="row">
+            <div class="row" >
                 <div class="col-md-4">
                     <label class="control-label" for="messagebox">
                         Message
                     </label>
                 </div>
                 <div class="col-md-6">
-                    <textarea class="messageDisplay center-block form-control" rows="15" cols="50" disabled=""></textarea>
+                    <textarea ng-model="message" class="messageDisplay center-block form-control" rows="15" cols="50"></textarea>
                 </div>
             </div>
             <div class="row">
@@ -54,7 +54,7 @@
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <button class="btn btn-primary center-block">Send</button>
+                    <button class="btn btn-primary center-block" ng-click="send()">Send</button>
                 </div>
                 <div class="col-md-6">
                     <button class="btn btn-primary center-block">Logout</button>

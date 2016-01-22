@@ -14,9 +14,21 @@ namespace Wizchat.Hubs
     {
 
 
-        public void Send(string toid, string from, string message)
+        public void Send(string to, string from, string message)
         {
-            Clients.Client(toid).addNewMessage(from, message);
+            var connectionid = ClientStore.UserConnectionIDictionary[to];
+            var client = ClientStore.ConnectionIdClientDictionary[connectionid];
+
+            var fromclient = ClientStore.ConnectionIdClientDictionary[this.Context.ConnectionId];
+
+            client.Inbox.Add(new Message()
+            {
+                to = client,
+                from = fromclient,
+                message = message
+            });
+
+            Clients.Client(connectionid).addNewMessage(from, message);
         }
 
     }

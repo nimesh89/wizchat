@@ -1,9 +1,9 @@
 ﻿angular.module("main", []).value("container", {}).run(["$http", "container", function ($http, container) {
     var proxy = $.connection.chatHub;
     container.proxy = proxy;
-    //proxy.client.addMessage = function (to, from, message) {
-    //    alert("" + from + " " + message);
-    //}
+    proxy.client.addNewMessage = function (from, message) {
+        alert(from + " " + message);
+    }
 
     //proxy.client.addUser = function (name) {
     //    alert(name);
