@@ -1,13 +1,13 @@
-﻿angular.module("main", []).run(["$http", function ($http) {
+﻿angular.module("main", []).value("container", {}).run(["$http", "container", function ($http, container) {
     var proxy = $.connection.chatHub;
+    container.proxy = proxy;
+    //proxy.client.addMessage = function (to, from, message) {
+    //    alert("" + from + " " + message);
+    //}
 
-    proxy.client.addMessage = function (to, from, message) {
-        alert("" + from + " " + message);
-    }
-
-    proxy.client.addUser = function (name) {
-        alert(name);
-    }
+    //proxy.client.addUser = function (name) {
+    //    alert(name);
+    //}
 
     $.connection.hub.start()
     .done(function () {
@@ -15,4 +15,12 @@
         $http.post("/api/AdminUser", { connectionid: $.connection.hub.id });
     })
     .fail(function () { console.log('Could not Connect!'); });
+}]).controller("userlist", ["$scope", "$http", "container", "$timeout", function ($scope, $http, container, $timeout) {
+    $scope.users = [];
+
+    container.proxy.client.addUser = function (name) {
+        $timeout(function () {
+            $scope.users.push(name);
+        }, 10, true);
+    }
 }]);

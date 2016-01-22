@@ -11,26 +11,10 @@
             </label>
         </div>
     </div>
-    <div class="row">
+    <div class="row" ng-controller="userlist">
         <div class="col-md-9">
-            <select class="center-block form-control" size="10">
-                <option>abc</option>
-                <option>abc</option>
-                <option>abc</option>
-                <option>abc</option>
-                <option>abc</option>
-                <option>abc</option>
-                <option>abc</option>
-                <option>abc</option>
-                <option>abc</option>
-                <option>abc</option>
-                <option>abc</option>
-                <option>abc</option>
-                <option>abc</option>
-                <option>abc</option>
-                <option>abc</option>
-                <option>abc</option>
-                <option>abc</option>
+            <select ng-model="selecteduser" ng-options="user for user in users" class="center-block form-control" size="10">
+                <option value="">Select User</option>
             </select>
         </div>
     </div>
