@@ -13,7 +13,7 @@
     </div>
     <div class="row" ng-controller="userlist">
         <div class="col-md-9">
-            <select ng-model="selecteduser" ng-options="user for user in users" class="center-block form-control" size="10">
+            <select ng-model="container.selecteduser" ng-options="user for user in users" class="center-block form-control" size="10">
                 <option value="">Select User</option>
             </select>
         </div>
@@ -23,9 +23,9 @@
             <input type="text" class="form-control invisible"/>
         </div>
     </div>
-    <div class="row">
+    <div class="row" ng-controller="messagectrl">
         <div class="col-md-9">
-            <textarea class="messageDisplay center-block form-control" rows="30" cols="70" disabled=""></textarea>
+            <textarea class="messageDisplay center-block form-control" ng-model="messageDisplay" rows="30" cols="70" disabled=""></textarea>
         </div>
     </div>
     <div class="row">
@@ -33,26 +33,31 @@
             <input type="text" class="form-control invisible"/>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-3">
-            <label class="control-label" for="messagebox">
-                Message
-            </label>
+    <div class="row" ng-controller="sendmessage">
+        <div class="col-md9">
+            <div class="row">
+                <div class="col-md-4">
+                    <label class="control-label" for="messagebox">
+                        Message
+                    </label>
+                </div>
+                <div class="col-md-8">
+                    <textarea class="messageDisplay center-block form-control" ng-model="message" rows="15" cols="50"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <input type="text" class="form-control invisible" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-9">
+                    <button class="btn btn-primary center-block" ng-click="send()">Send</button>
+                </div>
+            </div>
         </div>
-        <div class="col-md-6">
-            <textarea class="messageDisplay center-block form-control" rows="15" cols="50" disabled=""></textarea>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <input type="text" class="form-control invisible"/>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-9">
-            <button class="btn btn-primary center-block">Send</button>
-        </div>
-    </div>
+        
+    </div>  
 </div>
 
 <script src="~/js/admin.js"></script>
